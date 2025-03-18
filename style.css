@@ -1,0 +1,165 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo da página */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;  /* Fundo escuro */
+    color: #f4f4f4;  /* Texto claro */
+    line-height: 1.6;
+    padding: 2rem;  /* Ajuste o padding aqui para dar mais espaçamento */
+}
+
+/* Cabeçalho */
+header {
+    background-color: #1f1f1f;  /* Cor de fundo escura para o cabeçalho */
+    color: #fff;
+    padding: 1.5rem 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);  /* Sombra sutil para dar profundidade */
+}
+
+header .container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 2.5rem;
+}
+
+header nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin: 0 1.5rem;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+header nav ul li a:hover {
+    text-decoration: underline;
+    color: #2196F3;  /* Azul vibrante no hover */
+}
+
+/* Seções */
+section {
+    padding: 5rem 0;
+    margin-top: 80px; /* Espaço para o cabeçalho fixo */
+    background-color: #1a1a1a;  /* Fundo escuro para as seções */
+    border-radius: 10px;  /* Bordas arredondadas para um visual mais suave */
+    margin-bottom: 2rem; /* Espaçamento entre as seções */
+}
+
+section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #fff;
+}
+
+section p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 2rem auto;
+    color: #ccc;  /* Texto mais suave */
+}
+
+/* Projetos */
+#projetos .projects {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);  /* Agora são 2 colunas */
+    gap: 2rem;
+    padding: 2rem 0;
+    justify-items: center;  /* Centraliza os itens */
+}
+
+#projetos .project {
+    background-color: #333;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);  /* Sombra suave para destaque */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#projetos .project:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+#projetos .project h3 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+#projetos .project p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #ccc;
+}
+
+#projetos .project a {
+    color: #2196F3;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#projetos .project a:hover {
+    text-decoration: underline;
+}
+
+/* Botão de contato */
+.botao {
+    text-align: center;  /* Garantir que o botão seja centralizado */
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #2196F3;
+    color: #fff;
+    padding: 1rem 3rem;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 2rem;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #1976D2;
+}
+
+/* Rodapé */
+footer {
+    background-color: #1f1f1f;
+    color: #ccc;
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 4rem;
+}
+
+footer p {
+    font-size: 1rem;
+}
