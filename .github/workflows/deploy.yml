@@ -1,4 +1,4 @@
-name: Deploy para as páginas do GitHub
+name: Deploy para as paginas do GitHub
 
 on:
   push:
@@ -15,7 +15,7 @@ jobs:
     - name: Configura o GitHub Pages
       uses: actions/configure-pages@v3
 
-    - name: Cria arquivos para deploy
+    - name: Cria arquivos para Deploy
       uses: actions/upload-pages-artifact@v3
       with:
         path: .
