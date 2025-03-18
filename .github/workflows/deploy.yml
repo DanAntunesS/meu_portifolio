@@ -1,34 +1,24 @@
-name: Deploy para as páginas do GitHub
+name: Deploy para as paginas do GitHub
 
 on:
   push:
     branches:
       - main
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checar o repositório
+      - name: Checa o repositorio
         uses: actions/checkout@v3
-
-      # Caso você precise de um build, adicione o passo de build aqui (exemplo com Node.js)
-      # Exemplo de um build com Node.js
-      # - name: Instalar dependências
-      #   run: |
-      #     npm install
-      # - name: Build
-      #   run: |
-      #     npm run build
-
-      - name: Configurar o GitHub Pages
+  
+      - name: Configura o GitHub Pages
         uses: actions/configure-pages@v3
   
-      - name: Criar arquivos para o deploy
+      - name: Cria arquivos para Deploy
         uses: actions/upload-pages-artifact@v2
         with:
-          path: ./dist  # Aqui você especifica o diretório onde os arquivos de build estão. Altere conforme sua estrutura de projeto.
+          path: .
   
-      - name: Publicar no GitHub Pages
+      - name: Publica no GitPages
         uses: actions/deploy-pages@v1
