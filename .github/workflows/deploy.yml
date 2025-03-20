@@ -1,24 +1,25 @@
-name: Deploy para as paginas do GitHub
+name: Deploy para as páginas do GitHub
 
 on:
   push:
     branches:
       - main
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checa o repositorio
+      - name: Checa o repositório
         uses: actions/checkout@v3
-  
+      
       - name: Configura o GitHub Pages
-        uses: actions/configure-pages@v3
-  
+        uses: actions/configure-pages@v2  # Verifique se a versão está atualizada para a correta
+
       - name: Cria arquivos para Deploy
         uses: actions/upload-pages-artifact@v2
         with:
-          path: .
-  
-      - name: Publica no GitPages
-        uses: actions/deploy-pages@v1
+          path: ./build  # Certifique-se de que os arquivos de saída estão na pasta correta para upload
+
+      - name: Publica no GitHub Pages
+        uses: actions/deploy-pages@v2  # Certifique-se de usar a versão correta aqui
