@@ -18,7 +18,9 @@ jobs:
       - name: Instala dependências e cria o build
         run: |
           npm install
-          npm run build  # Substitua por comandos específicos para sua aplicação
+          npm run build  
+          
+        # Substitua por comandos específicos para sua aplicação
 
       # Passo 3: Faz o deploy dos artefatos para o GitHub Pages
       - name: Deploy no GitHub Pages
