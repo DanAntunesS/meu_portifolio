@@ -1,27 +1,38 @@
-name: Deploy para o GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches:
-      - main
+      - main  # ou a branch que você deseja usar
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # Passo 1: Checa o repositório
-      - name: Checa o repositório
+      # Passo 1: Verifica o código do repositório
+      - name: Check out repository
         uses: actions/checkout@v3
 
-      # Passo 2: Gera os arquivos para o deploy (exemplo para uma aplicação React)
-      - name: Instala dependências e cria o build
-        run: |
-          npm install
-          npm run build  
-          
-        # Substitua por comandos específicos para sua aplicação
+      # Passo 2: Configura o Node.js (ou outro ambiente, dependendo do seu projeto)
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
 
-      # Passo 3: Faz o deploy dos artefatos para o GitHub Pages
-      - name: Deploy no GitHub Pages
-        uses: actions/deploy-pages@v2
+      # Passo 3: Instala dependências
+      - name: Install dependencies
+        run: npm install
+
+      # Passo 4: Build do projeto (caso precise compilar)
+      - name: Build project
+        run: npm run build  # ou qualquer comando de build que você precise
+
+      # Passo 5: Faz o deploy para o GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages  # A branch que receberá os arquivos
+          folder: build  # Pasta do build gerado (ajuste conforme necessário)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
