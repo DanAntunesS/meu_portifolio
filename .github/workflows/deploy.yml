@@ -1,4 +1,4 @@
-name: Deploy para as páginas do GitHub
+name: Deploy para o GitHub Pages
 
 on:
   push:
@@ -10,16 +10,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Passo 1: Checa o repositório
       - name: Checa o repositório
         uses: actions/checkout@v3
 
-      - name: Configura o GitHub Pages
-        uses: actions/configure-pages@v2
+      # Passo 2: Gera os arquivos para o deploy (exemplo para uma aplicação React)
+      - name: Instala dependências e cria o build
+        run: |
+          npm install
+          npm run build  # Substitua por comandos específicos para sua aplicação
 
-      - name: Cria arquivos para Deploy
-        uses: actions/upload-artifact@v3
-        with:
-          path: ./build meu_portifolio  # Ou o caminho correto onde seus arquivos de build estão
-
-      - name: Publica no GitHub Pages
+      # Passo 3: Faz o deploy dos artefatos para o GitHub Pages
+      - name: Deploy no GitHub Pages
         uses: actions/deploy-pages@v2
