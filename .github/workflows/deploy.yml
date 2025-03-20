@@ -3,36 +3,22 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # ou a branch principal que você está usando
+      - main  # A branch onde você faz o push
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-    # Passo 1: Verificar o código no repositório
-    - name: Checkout repository
+    # Passo 1: Verificar o código
+    - name: Checkout code
       uses: actions/checkout@v3
 
-    # Passo 2: Configurar o Node.js (substitua conforme a necessidade do seu projeto)
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '16'
-
-    # Passo 3: Instalar dependências
-    - name: Install dependencies
-      run: npm install
-
-    # Passo 4: Build do projeto (ajuste conforme seu projeto)
-    - name: Build project
-      run: npm run build  # Ajuste se necessário
-
-    # Passo 5: Deploy para GitHub Pages
+    # Passo 2: Deploy para o GitHub Pages
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
-        branch: gh-pages  # A branch onde os arquivos serão hospedados
-        folder: build     # Pasta onde os arquivos compilados do seu projeto estão
+        branch: gh-pages  # A branch que vai receber os arquivos
+        folder: .  # Enviando todos os arquivos para a root (se não estiver usando build)
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
