@@ -12,14 +12,14 @@ jobs:
     steps:
       - name: Checa o repositório
         uses: actions/checkout@v3
-      
+
       - name: Configura o GitHub Pages
-        uses: actions/configure-pages@v2  # Verifique se a versão está atualizada para a correta
+        uses: actions/configure-pages@v2
 
       - name: Cria arquivos para Deploy
         uses: actions/upload-pages-artifact@v2
         with:
-          path: ./build  # Certifique-se de que os arquivos de saída estão na pasta correta para upload
+          path: ./build  # Ou o caminho correto onde seus arquivos de build estão
 
       - name: Publica no GitHub Pages
-        uses: actions/deploy-pages@v2  # Certifique-se de usar a versão correta aqui
+        uses: actions/deploy-pages@v2
