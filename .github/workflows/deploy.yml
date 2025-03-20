@@ -1,24 +1,22 @@
-name: Deploy to GitHub Pages
-
 on:
   push:
     branches:
-      - main  # A branch onde você faz o push
-
+      - main
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-    # Passo 1: Verificar o código
-    - name: Checkout code
-      uses: actions/checkout@v3
-
-    # Passo 2: Deploy para o GitHub Pages
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        branch: gh-pages  # A branch que vai receber os arquivos
-        folder: .  # Enviando todos os arquivos para a root (se não estiver usando build)
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Checa o repositorio
+        uses: actions/checkout@v3
+  
+      - name: Configura o GitHub Pages
+        uses: actions/configure-pages@v3
+  
+      - name: Cria arquivos para Deploy
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: .
+  
+      - name: Publica no GitPages
+        uses: actions/deploy-pages@v1
